@@ -1,0 +1,34 @@
+.blog-post-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 5%;
+}
+.blog-post-main img{
+   width: 40%;
+   height: 40%;
+   object-fit: cover;
+}
+.blog-post-main-auth-date{
+    width: 100%;
+    color: #ffa40c;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (max-width:480px){
+
+    .blog-post-main img{
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+     }
+    .blog-post-main h1{
+        font-size: 25px;
+    }
+    .blog-post-main h3{
+        font-size: medium;
+        text-align: center;
+    }
+  }

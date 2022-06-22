@@ -1,0 +1,78 @@
+.write-main-title{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+.write-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.write-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15%;
+}
+.write-form input,textarea{
+    border:none;
+    align-items: center;
+    height: 2rem;
+    width: 80%;
+    font-size: large;
+    padding-left: 1rem;
+    margin: 0.2rem;
+    background: rgba(255,255,255,0.3);
+    border: none;
+    outline: none;
+    color: black;
+    margin: 0.8%;
+}
+.write-form textarea{
+    font-size: 15px;
+    height: 120px;
+    color: black;
+    padding: 10px;
+}
+.write-form textarea::placeholder{
+    font-size: 15px;
+    height: 20%;
+    color: black;
+}
+.write-form input::placeholder{
+    font-size: large;
+}
+.write-form-submit{
+    width: 20% !important;
+    padding-left: 0rem !important;
+    border-radius: 10px;
+    background-color: #ffa40c !important;
+}
+.write-form img{
+    width: 40%;
+    height: 40%;
+}
+.write-form label{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.write-form-submit:hover{
+    transform: scale(1.1) !important;
+    box-shadow: none !important;
+}
+.write-form-title{
+    font-size: x-large !important;
+    height: 50px !important;
+    font-weight: bold;
+}
+.write-form-title::placeholder{
+    font-size: x-large !important;
+    font-weight: bold;
+}
+.write-form-image{
+    
+}

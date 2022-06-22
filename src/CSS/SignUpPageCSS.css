@@ -1,0 +1,114 @@
+.sign-up-page-main{
+    height: 93vh;
+    width: 100%;
+    background-image: url(../Resources/background2.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sign-up-page-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+    width: 30vw;
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+    backdrop-filter: blur(8.5px);
+    border-radius: 0.5rem;
+    color: white;
+}
+.sign-up-page-login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15%;
+}
+.sign-up-page-login-form input{
+    border-radius: 1rem;
+    align-items: center;
+    height: 2rem;
+    width: 80%;
+    font-size: large;
+    padding-left: 1rem;
+    margin: 0.2rem;
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
+    border: none;
+    outline: none;
+    color: white;
+}
+.sign-up-page-login-form input:hover{
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.564);
+}
+.sign-up-page-login-head{
+    display:flex;
+    padding-top: 15%;
+    padding-bottom:15%;
+}
+.sign-up-page-main h4{
+    padding: 0;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 80%;
+    text-align: left;
+}
+.sign-up-page-login-form input::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+    font-size: large;
+}
+
+.sign-up-page-login-form-submit{
+    width: 60% !important;
+    padding-left: 0rem !important;
+    background-color: #ffa40c !important;
+    margin-top: 10% !important;
+}
+.sign-up-page-login-form-submit:hover{
+    transform: scale(1.1) !important;
+    box-shadow: none !important;
+}
+.sign-up-page-login-form-hidden{
+    display: none;
+}
+.sign-up-page-login-form-display{
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10%;
+    
+}
+
+@media (max-width:1100px){
+    .sign-up-page-login{
+        width: 35vw;
+    }
+}
+
+@media (max-width:1000px){
+    .sign-up-page-login{
+        width: 38vw;
+    }
+}
+
+@media (max-width:800px){
+    .sign-up-page-login{
+        width: 45vw;
+    }
+}
+
+@media (max-width:600px){
+    .sign-up-page-login{
+        width: 55vw;
+    }
+}
+@media (max-width:600px){
+    .sign-up-page-login{
+        width: 80vw;
+    }
+}
