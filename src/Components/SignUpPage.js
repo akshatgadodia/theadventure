@@ -21,10 +21,9 @@ const SignUpPage = () => {
     }
     else{
       const loginData = {'email':email,'password':password,'name':name};
-      axios.post("http://192.168.29.39:8080/api/v1/auth/signup", loginData)
+      axios.post("https://theadventure-travelblog.herokuapp.com/api/v1/auth/signup", loginData)
               .then((res)=>{
                 navigate("/signin")
-                console.log(res)
               })
               .catch((err)=>{
                 setError(err.response.data.message);

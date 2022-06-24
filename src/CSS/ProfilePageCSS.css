@@ -4,3 +4,13 @@
     margin-top: 2%;
     margin-bottom: 4%;
 }
+.profile-main-div{
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    color: #ffa40c;
+}
+.profile-main-link{
+    text-decoration: none;
+    color: #ffa40c;
+}

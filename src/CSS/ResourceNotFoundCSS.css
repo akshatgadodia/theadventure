@@ -1,0 +1,10 @@
+.resource-not-found{
+    display: flex;
+    flex-direction: column;
+    height: 93vh;
+    width: 100vw;
+    justify-content: center;
+    color: #ffa40c;
+    align-items: center;
+    text-align: center;
+}

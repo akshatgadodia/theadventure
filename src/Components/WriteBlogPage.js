@@ -1,4 +1,4 @@
-import React,{useState}from 'react'
+import React,{useState,useEffect}from 'react'
 import '../CSS/WriteBlogPostCSS.css';
 import TitleLetterDisplay from './TitleLetterDisplay';
 import axios from 'axios';
@@ -18,10 +18,16 @@ const WriteBlogPage = () => {
   const [imageBase64,setImageBase64] = useState(null);
   const [error,setError] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
+
   const fileReader = new FileReader();
   fileReader.onload = function(FileLoadEvent){
     setImageBase64(FileLoadEvent.target.result);
   }
+
+  useEffect(() => {
+  }, [isFetching])
+  
+
   const savePost = (event) => {
     setIsFetching(true);
     event.preventDefault();
@@ -34,7 +40,7 @@ const WriteBlogPage = () => {
 
     const postData = {'authorId':authorId,'authorName':authorName,'title':title,'content':content,'imageBase64':imageBase64,'createdDate': new Date()};
     console.log(postData);
-    axios.post("http://192.168.29.39:8080/api/v1/posts", postData, config)
+    axios.post("https://theadventure-travelblog.herokuapp.com/api/v1/posts", postData, config)
               .then((res)=>{
                 console.log(res)
                 navigate(`/blogs/${res.data.postId}`)
@@ -44,6 +50,7 @@ const WriteBlogPage = () => {
               })
     setIsFetching(false);
   }
+
   return (
     <div className='write-main'>
       {isFetching && <LoadingSign/> }

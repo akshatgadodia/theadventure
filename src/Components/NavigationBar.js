@@ -1,9 +1,10 @@
 import React from 'react'
 import '../CSS/NavigationBarCSS.css';
+import '../CSS/BlogCSS.css';
 import CreateIcon from '@mui/icons-material/Create';
 import PersonIcon from '@mui/icons-material/Person';
-import SearchIcon from '@mui/icons-material/Search';
 import LogoutIcon from '@mui/icons-material/Logout';
+import FeedIcon from '@mui/icons-material/Feed';
 import { useSelector,useDispatch } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import {AuthenticationActions} from '../Redux/AuthenticationSlice';
@@ -14,12 +15,14 @@ const NavigationBar = () => {
 
   const logout = () => {
     dispatch(AuthenticationActions.setAuthentication({isAuthenticated : false,
+      expireDate : null,
       userId : null,
       userName : null,
       userEmail : null,
       tokenType : null,
       token : null}));
-  }
+    localStorage.removeItem('TheAdventure');
+    }
   return (
     <div className='navigation-bar-main'>
         <div className="navigation-bar-main-title">
@@ -38,10 +41,10 @@ const NavigationBar = () => {
               </div>
           } 
             <div className='navigation-bar-tooltip'>
-                <NavLink to="/search" className='navigation-bar-main-navlink'>
-                  <SearchIcon/>
-                </NavLink>
-                <span className='navigation-bar-tooltiptext'>Search</span>
+              <NavLink to="/blogs" className='navigation-bar-main-navlink'>
+                <FeedIcon/>
+              </NavLink>
+              <span className='navigation-bar-tooltiptext'>Blogs</span>
             </div>
             <div className='navigation-bar-tooltip'>
               <NavLink to={isAuthenticated ? '/profile' : '/signin'} className='navigation-bar-main-navlink'>

@@ -11,8 +11,8 @@ const SignInPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [email,setEmail] = useState("akshatgadodia@gmail.com");
-  const [password, setPassword] = useState("password")
+  const [email,setEmail] = useState("");
+  const [password, setPassword] = useState("")
   const [error, setError] = useState("")
 
   const formHandler = (event) =>{
@@ -21,10 +21,14 @@ const SignInPage = () => {
         alert("Please Enter Correct Credentials");
     }
     const loginData = {'email':email,'password':password};
-    axios.post("http://192.168.29.39:8080/api/v1/auth/signin", loginData)
+    console.log(loginData)
+    axios.post("https://theadventure-travelblog.herokuapp.com/api/v1/auth/signin", loginData)
               .then((res)=>{
                 setError("");
-                dispatch(AuthenticationActions.setAuthentication({'isAuthenticated':true,...res.data}));
+                const date = new Date();
+                date.setDate(date.getDate() + 6);
+                dispatch(AuthenticationActions.setAuthentication({'isAuthenticated':true,'expireDate':date.toLocaleDateString(),...res.data}));
+                localStorage.setItem('TheAdventure',JSON.stringify({'isAuthenticated':true,...res.data}))
                 navigate("/")
               })
               .catch((err)=>{
@@ -52,7 +56,6 @@ const SignInPage = () => {
             <input type="submit" value="Login" placeholder='Login' className='sign-in-page-login-form-submit'/> 
           </form>
           <h3 className={error==="" ? 'sign-in-page-login-form-hidden' : 'sign-in-page-login-form-display'}>{error}</h3>
-          <h4>Forget Password? <Link className="sign-in-page-main-link"to="/signup">Click Here</Link></h4>
           <h4>Don't Have An Account <Link className="sign-in-page-main-link" to="/signup">Register Now</Link></h4>
       </div>
     </div>

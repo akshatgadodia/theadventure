@@ -2,18 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const AuthenticationSlice = createSlice({
     name : "authentication",
-    initialState : {/*isAuthenticated : false,
+    initialState : {isAuthenticated : false,
+                    expireDate : null,
                     userId : null,
                     userName : null,
                     userEmail : null,
                     tokenType : null,
-    token : null*/
-    isAuthenticated : true,
+    token : null
+    /*isAuthenticated : true,
     userId : 1,
     userName : "Akshat Gadodia",
     userEmail : "akshatgadodia@gmail.com",
     tokenType : "Bearer",
-token : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJha3NoYXRnYWRvZGlhQGdtYWlsLmNvbSIsImlhdCI6MTY1NTkyMTY5MCwiZXhwIjoxNjU2NTI2NDkwfQ.25Z638cY4QMqNEmV_8NO3cd3S0TDIUCWP9gWuYs5ZaVM6eTkiurkEJpkLTVqmh_jIvtqfM0yvpMsJy5vciZ4xA"},
+token : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJha3NoYXRnYWRvZGlhQGdtYWlsLmNvbSIsImlhdCI6MTY1NTkyMTY5MCwiZXhwIjoxNjU2NTI2NDkwfQ.25Z638cY4QMqNEmV_8NO3cd3S0TDIUCWP9gWuYs5ZaVM6eTkiurkEJpkLTVqmh_jIvtqfM0yvpMsJy5vciZ4xA"
+*/},
     reducers : {
         setAuthentication : (state,action) => {
             state.isAuthenticated = action.payload.isAuthenticated;
@@ -22,6 +24,8 @@ token : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJha3NoYXRnYWRvZGlhQGdtYWlsLmNvbSIsImlhdC
             state.userEmail = action.payload.userEmail
             state.tokenType = action.payload.tokenType
             state.token = action.payload.accessToken
+            state.expireDate = action.payload.expireDate
+            //console.log("Payload is "+action.payload.expireDate)
         }/*,
         setIsAuthenticated : (state,action) => {
             state.isAuthenticated = action.payload

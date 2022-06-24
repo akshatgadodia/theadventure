@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import LoadingSign from './LoadingSign';
 import axios from 'axios';
 import {Link, useParams} from 'react-router-dom'
-import image from '../Resources/loading.png'
+import image from '../Resources/noimage.png'
 const BlogPostPage = () => {
   const userId = useSelector(state=>state.authentication.userId);
   const [postId, setPostId] = useState(null)
@@ -13,12 +13,11 @@ const BlogPostPage = () => {
   const [isOwner, setIsOwner] = useState(false);
   const [result,setResult] = useState({title:"",authorName:"",content:"",createdDate:"",postId:"",imageBase64:"",authorId:""});
   const param = useParams();
-  const userLink=`/user/${result.authorId}`;
+  const userLink=`/users/${result.authorId}`;
   useEffect(() => {
     const fetchData = () => {
       setIsFetching(true);
-      console.log(`http://192.168.29.39:8080/api/v1/posts/${param.blogId}`);
-      axios.get(`http://192.168.29.39:8080/api/v1/posts/${param.blogId}`)
+      axios.get(`https://theadventure-travelblog.herokuapp.com/api/v1/posts/${param.blogId}`)
               .then((res)=>{
                 if(res.data.authorId===userId){
                   setIsOwner(true);
@@ -35,10 +34,12 @@ const BlogPostPage = () => {
 
   return (
     <div>
-      {isFetching && <LoadingSign/>} 
+      {(isFetching || result.imageBase64==="" ) && <LoadingSign/>} 
       {!isFetching && <div className='blog-post-main'>
         <h1>{result.title}</h1>
-        <img src={result.imageBase64==="" ? image : result.imageBase64} alt=""/>
+        {result.imageBase64!==null 
+          ? <img src={ result.imageBase64} alt=""/> 
+          : <div className="blog-post-no-image-div"><img src={image} alt=""/></div>}
         <div className="blog-post-main-auth-date">
           <h4><Link to={userLink} style={{textDecoration:'none',color:'#ffa40c'}}>{result.authorName}</Link></h4>
           <h4>{result.createdDate.substring(0, 10)}</h4>
