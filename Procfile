@@ -1,1 +1,2 @@
-heroku ps:scale web=1
+web: echo "useless"
+service: node index.js
